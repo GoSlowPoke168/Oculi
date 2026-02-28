@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-# TODO: Make the searching feature work for version numbers that are < or > than a range listed in the description
-# TODO: Add a feature to save the results to a file
 # TODO: Make it into a nmap wrapper.
 
 import argparse
@@ -414,13 +412,17 @@ def main():
                 # Wipe line (100 spaces), Print Open Port, Wipe again
                 sys.stdout.write("\r" + " " * 100 + "\r")
 
-                short_banner = str(banner_text)[:40]  # type: ignore
+                raw_text = str(banner_text or "")
+                clean_text = "".join(c if c.isprintable() else " " for c in raw_text)
+                clean_text = " ".join(clean_text.split())
+                
+                short_banner = clean_text[:40].ljust(45)  # type: ignore
                 if vulns:
                     print(
-                        f" {GREY}[*]{RESET} Port {port_number:<5} {GREEN}OPEN{RESET}   {CYAN}{short_banner:<45}{RESET} {RED}[VULNERABLE]{RESET}")
+                        f" {GREY}[*]{RESET} Port {port_number:<5} {GREEN}OPEN{RESET}   {CYAN}{short_banner}{RESET} {RED}[VULNERABLE]{RESET}")
                 else:
                     print(
-                        f" {GREY}[*]{RESET} Port {port_number:<5} {GREEN}OPEN{RESET}   {CYAN}{short_banner:<45}{RESET} {GREEN}[SAFE]{RESET}")
+                        f" {GREY}[*]{RESET} Port {port_number:<5} {GREEN}OPEN{RESET}   {CYAN}{short_banner}{RESET} {GREEN}[SAFE]{RESET}")
 
             scanned_count += 1
             current_time = time.time()

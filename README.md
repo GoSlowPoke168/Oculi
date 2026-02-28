@@ -31,11 +31,15 @@ Because Oculi only uses standard Python libraries, installation is incredibly si
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/oculi.git
-cd oculi
+git clone https://github.com/GoSlowPoke168/Oculi.git
+cd Oculi
 
 # Update the exploit database before first run
-python oculi.py -u
+python oculi.py -
+
+# Optionally, setup a symlink for the command
+chmod +x oculi.py
+ln -s $(pwd)/oculi.py /usr/local/bin/oculi
 ```
 
 ## 💻 Usage
@@ -56,15 +60,15 @@ python oculi.py -t 10.0.0.5 -p - -s 5
 | Flag | Description |
 | ---- | ----------- |
 | `-t`, `--target` | **[Required]** Target IP Address or Hostname |
-| `-p`, `--ports` | Ports to scan: `-p 80,443` or `-p-` for all ports. Defaults to Nmap's Top 1000. |
+| `-p`, `--ports` | Ports to scan: `-p 80,443`, `-p 1-100`, or `-p-` for all ports. Defaults to Nmap's Top 1000. |
 | `-s`, `--speed` | Scan Speed (1-5), where 5 is maximum throttle. Default: 3. |
 | `-o`, `--output` | Save the detailed scan report out to a plain text file. |
 | `-u`, `--update` | Updates the Exploit-DB JSON cache from the official GitLab repo. |
 
-## 📸 Screenshots
+## 📸 Demo
 <div align="center">
-  <img src="assets/terminal_output_placeholder.png" alt="Oculi Terminal Report" width="600"/>
-  <p><em>Example showing Oculi discovering multiple Tomcat exploits.</em></p>
+  <img src="assets/Oculi-Demo.gif" alt="Oculi Scanning Demo GIF" width="800"/>
+  <p><em>Example showing Oculi rapidly discovering multiple open ports and exploits.</em></p>
 </div>
 
 ## ⚖️ Comparison
