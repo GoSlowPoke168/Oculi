@@ -1,0 +1,8 @@
+__pycache__
+.idea
+.venv
+exploit_db.json
+test.py
+debug.py
+oculi_*
+output.txt
