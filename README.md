@@ -35,7 +35,7 @@ git clone https://github.com/GoSlowPoke168/Oculi.git
 cd Oculi
 
 # Update the exploit database before first run
-python oculi.py -
+python3 oculi.py -u
 
 # Optionally, setup a symlink for the command
 chmod +x oculi.py
@@ -47,13 +47,13 @@ Run `oculi.py` with standard arguments to begin an automated scan.
 
 ```bash
 # Basic Scan (Scans default Top 1000 ports at Speed 3)
-python oculi.py -t http://example.com
+python3 oculi.py -t http://example.com
 
 # Target Specific Ports and Output Report
-python oculi.py -t 192.168.1.15 -p 22,80,443,8080 -o report.txt
+python3 oculi.py -t 192.168.1.15 -p 22,80,443,8080 -o report.txt
 
 # Aggressive Scan (All 65535 ports at maximum Speed 5)
-python oculi.py -t 10.0.0.5 -p - -s 5
+python3 oculi.py -t 10.0.0.5 -p - -s 5
 ```
 
 ### Options
