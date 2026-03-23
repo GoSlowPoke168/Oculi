@@ -15,10 +15,10 @@
 
 ---
 
-## ⚡ Overview
+## Overview
 Oculi is a lightweight, aggressive, ZERO-dependency, multi-threaded vulnerability scanner written purely in Python. It detects open ports, actively probes for precise service banners, and automatically cross-references those banners against a locally cached copy of the [Exploit Database](https://www.exploit-db.com/) to instantly highlight potential vulnerabilities, CVEs, and proof-of-concept exploit code.
 
-## ✨ Features
+## Features
 * **Zero Dependencies**: Pure standard library Python 3. Runs out of the box.
 * **Aggressive Multithreading**: Capable of scanning thousands of ports simultaneously.
 * **Smart Banner Grabbing**: Employs stealth probes to coax banners out of hesitant HTTP/HTTPS services, while also understanding raw SSH and FTP banners.
@@ -26,7 +26,7 @@ Oculi is a lightweight, aggressive, ZERO-dependency, multi-threaded vulnerabilit
 * **Intelligent Version Math**: Parses complex version constraints from Exploit-DB descriptions (e.g., `Apache >= 2.2.0 < 2.4.29` or `1.1.x - 1.5.0`) to avoid false positives.
 * **Beautiful CLI Reports**: Provides organized, colorized terminal output and structural file-saving capabilities.
 
-## 🚀 Installation
+## Installation
 Because Oculi only uses standard Python libraries, installation is incredibly simple.
 
 ```bash
@@ -42,7 +42,7 @@ chmod +x oculi.py
 ln -s $(pwd)/oculi.py /usr/local/bin/oculi
 ```
 
-## 💻 Usage
+## Usage
 Run `oculi.py` with standard arguments to begin an automated scan.
 
 ```bash
@@ -65,13 +65,13 @@ python3 oculi.py -t 10.0.0.5 -p - -s 5
 | `-o`, `--output` | Save the detailed scan report out to a plain text file. |
 | `-u`, `--update` | Updates the Exploit-DB JSON cache from the official GitLab repo. |
 
-## 📸 Demo
+## Demo
 <div align="center">
   <img src="assets/Oculi-Demo.gif" alt="Oculi Scanning Demo GIF" width="800"/>
   <p><em>Example showing Oculi rapidly discovering multiple open ports and exploits.</em></p>
 </div>
 
-## ⚖️ Comparison
+## Comparison
 How does Oculi compare to established tools?
 
 | Feature | Oculi | Nmap (Default) | RustScan | SearchSploit |
@@ -86,8 +86,8 @@ How does Oculi compare to established tools?
 > **Why reinvent the wheel with SearchSploit?** 
 > SearchSploit relies heavily on basic `grep` text matching. Oculi improves upon SearchSploit's search engine by implementing **True Version Math**. It parses relational ranges like "Apache >= 2.2.0 < 2.4.29" within the database, dynamically preventing false-positive exploit returns when you scan a patched host.
 
-## 🗺️ Roadmap / TODO
+## Roadmap / TODO
 - [ ] Implement an **Nmap Wrapper Integration** mode to ingest highly accurate Nmap XML scans and run them through Oculi's Exploit-DB parsing engine.
 
-## ⚠️ Disclaimer
+## Disclaimer
 Oculi was developed for educational purposes, Capture-the-Flag (CTF) events, and authorized penetration testing only. Do not use this tool against infrastructure you do not own or have explicit permission to test.
